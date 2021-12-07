@@ -41,6 +41,12 @@ public class addlast {
             System.out.println();
         }
 
+        void removeFirst()
+        {
+            Node temp = head;
+            head = temp.next;
+            
+        }
     }
 
     public static void main(String[] args) throws Exception {
