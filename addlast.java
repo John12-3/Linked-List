@@ -19,21 +19,14 @@ public class addlast {
             Node temp = new Node();
             temp.data = data;
             temp.next = null;
-            // if(head == null)
-            // {
-            // head = tail = temp;
-            // size++;
-            // }
-            // else
-            // {
-            // tail.next = temp;
-            // tail = temp;
-            // size++;
-            // }
-
-            tail.next = temp;
-            tail = temp;
-            size++;
+            if (head == null) {
+                head = tail = temp;
+                size++;
+            } else {
+                tail.next = temp;
+                tail = temp;
+                size++;
+            }
 
         }
 
@@ -63,9 +56,9 @@ public class addlast {
                 System.out.println(list.size());
             } else if (str.startsWith("display")) {
                 list.display();
-            }
+            } else if (str.startsWith("add"))
 
-            str = br.readLine();
+                str = br.readLine();
         }
 
     }
