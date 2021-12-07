@@ -1,0 +1,106 @@
+import java.util.*;
+
+class Main {
+    public static Scanner scn = new Scanner(System.in);
+
+    public static class ListNode {
+        int val = 0;
+        ListNode next = null;
+
+        ListNode(int val) {
+            this.val = val;
+        }
+    }
+    
+    
+    static ListNode th = null;
+    static ListNode tt = null;
+    
+    public static void AddFirst(ListNode node)
+    {
+        if(th == null)
+        {
+            th = node;
+            tt = node;
+        }
+        else
+        {
+            node.next = th;
+            th = node;
+        }
+    }
+    
+    public static int length(ListNode node)
+    {
+        ListNode cur = node;
+        int length = 0;
+        while(cur != null)
+        {
+            cur = cur.next;
+            length = length+1;
+        }
+        return length;
+    }
+
+    public static ListNode reverseInKGroup(ListNode head, int k) {
+        if(head == null || head.next == null || k == 0) return head;
+        
+        ListNode oh = null,ot = null;
+        ListNode forw = null;
+        ListNode cur = head;
+        int length = length(head);
+        while(length >= k)
+        {
+            int tempV = k;
+            while(tempV-- > 0)
+            {
+                forw = cur.next;
+                cur.next = null;
+                AddFirst(cur);
+                cur = forw;
+            }
+            if(oh == null)
+            {
+                oh = th;
+                ot = tt;
+            }
+            else
+            {
+                ot.next = th;
+                ot = tt;
+            }
+            th = null;
+            tt = null;
+            length -= k;
+        }
+        ot.next = cur;
+        return oh;
+    }
+
+    public static void printList(ListNode node) {
+        while (node != null) {
+            System.out.print(node.val + " ");
+            node = node.next;
+        }
+    }
+
+    public static ListNode createList(int n) {
+        ListNode dummy = new ListNode(-1);
+        ListNode prev = dummy;
+        while (n-- > 0) {
+            prev.next = new ListNode(scn.nextInt());
+            prev = prev.next;
+        }
+
+        return dummy.next;
+    }
+
+    public static void main(String[] args) {
+        int n = scn.nextInt();
+        ListNode h1 = createList(n);
+
+        int k = scn.nextInt();
+        h1 = reverseInKGroup(h1, k);
+        printList(h1);
+    }
+}
