@@ -1,54 +1,57 @@
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
-public class addlast {
-
-    private static class Node {
+public class get {
+    public static class Node {
         int data;
         Node next;
     }
 
-    private static class LinkedList {
+    public static class LinkedList {
         Node head;
         Node tail;
         int size;
 
-        void addLast(int data) {
+        void addLast(int val) {
             Node temp = new Node();
-            temp.data = data;
+            temp.data = val;
             temp.next = null;
-            if (head == null) {
+
+            if (size == 0) {
                 head = tail = temp;
             } else {
                 tail.next = temp;
                 tail = temp;
             }
+
             size++;
         }
 
-        int size() {
+        public int size() {
             return size;
         }
 
-        void display() {
-            if (size == 0) {
-                return;
-            }
+        public void display() {
             for (Node temp = head; temp != null; temp = temp.next) {
-                System.out.println(temp.data + "\t");
+                System.out.print(temp.data + " ");
             }
             System.out.println();
         }
 
-        void removeFirst() {
-            Node temp = head;
-            head = temp.next;
-
+        public void removeFirst() {
+            if (size == 0) {
+                System.out.println("List is empty");
+            } else if (size == 1) {
+                head = tail = null;
+                size = 0;
+            } else {
+                head = head.next;
+                size--;
+            }
         }
 
         public int getFirst() {
+            // write your code here
             if (size == 0) {
                 System.out.println("List is empty");
                 return -1;
@@ -57,22 +60,21 @@ public class addlast {
         }
 
         public int getLast() {
+            // write your code here
             if (size == 0) {
-                System.out.println("List is empty"); 
+                System.out.println("List is empty");
                 return -1;
             }
             return tail.data;
         }
 
         public int getAt(int idx) {
+            // write your code here
             Node temp = head;
-            if(size == 0)
-            {
+            if (size == 0) {
                 System.out.println("List is empty");
                 return -1;
-            }
-            else if(idx < 0 || idx >= size)
-            {
+            } else if (idx < 0 || idx >= size) {
                 System.out.println("Invalid arguments");
                 return -1;
             }
@@ -86,7 +88,6 @@ public class addlast {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         LinkedList list = new LinkedList();
-        Scanner scn = new Scanner(System.in);
 
         String str = br.readLine();
         while (str.equals("quit") == false) {
@@ -97,18 +98,26 @@ public class addlast {
                 System.out.println(list.size());
             } else if (str.startsWith("display")) {
                 list.display();
+            } else if (str.startsWith("removeFirst")) {
+                list.removeFirst();
             } else if (str.startsWith("getFirst")) {
-                list.getFirst();
-            } else if (str.startsWith("getAt")) {
-                list.getLast();
+                int val = list.getFirst();
+                if (val != -1) {
+                    System.out.println(val);
+                }
             } else if (str.startsWith("getLast")) {
-                int n = scn.nextInt();
-                list.getAt(n);
+                int val = list.getLast();
+                if (val != -1) {
+                    System.out.println(val);
+                }
+            } else if (str.startsWith("getAt")) {
+                int idx = Integer.parseInt(str.split(" ")[1]);
+                int val = list.getAt(idx);
+                if (val != -1) {
+                    System.out.println(val);
+                }
             }
-
             str = br.readLine();
-            scn.close();
         }
-
     }
 }
