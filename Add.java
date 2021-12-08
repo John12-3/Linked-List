@@ -1,6 +1,5 @@
 
 import java.io.*;
-import java.util.*;
 
 public class Add {
     public static class Node {
@@ -86,11 +85,16 @@ public class Add {
         }
 
         public void addFirst(int val) {
-            // write your code here
+            /// write your code here
             Node temp = new Node();
             temp.data = val;
-            temp.next = head;
-            head = temp;
+
+            if (size == 0) {
+                head = tail = temp;
+            } else {
+                temp.next = head;
+                head = temp;
+            }
             size++;
         }
     }

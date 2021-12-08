@@ -42,12 +42,6 @@ public class addlast {
             System.out.println();
         }
 
-        void removeFirst() {
-            Node temp = head;
-            head = temp.next;
-
-        }
-
         public int getFirst() {
             if (size == 0) {
                 System.out.println("List is empty");
