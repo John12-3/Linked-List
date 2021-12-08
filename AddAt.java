@@ -1,6 +1,5 @@
 
 import java.io.*;
-import java.util.*;
 
 public class AddAt {
     public static class Node {
@@ -114,8 +113,8 @@ public class AddAt {
                 Node np1 = nm1.next;
                 Node node = new Node();
                 node.data = val;
-                node.next = np1;
                 nm1.next = node;
+                node.next = np1;
                 size++;
             }
 
