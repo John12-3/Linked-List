@@ -1,6 +1,5 @@
 import java.io.*;
 
-
 public class get {
     public static class Node {
         int data;
