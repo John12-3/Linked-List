@@ -332,6 +332,45 @@ public class kreverse {
 
         public void kReverse(int k) {
             // write your code here
+            LinkedList prev = null;
+            LinkedList curr = new LinkedList();; 
+
+            while(this.size() > 0)
+            {
+                if(this.size() > 0)
+                {
+                    int sz = this.size();
+                    for(int i=0;i<sz;i++)
+                    {
+                        int val = getFirst();
+                        removeFirst();
+                        curr.addLast(val);
+                    }
+                }
+                else
+                {
+                    for(int i=0;i<k;i++)
+                    {
+                        int val = this.getFirst();
+                        this.removeFirst();
+                        curr.addFirst(val);
+                    }
+                }
+                
+
+                if(prev == null)
+                {
+                    prev = curr;
+                    curr = new LinkedList();
+                }
+                else
+                {
+                    prev.tail.next = curr.head;
+                    prev.tail = curr.tail;
+                    prev.size += curr.size;
+                    curr = new LinkedList();
+                }
+            }
         }
     }
 
