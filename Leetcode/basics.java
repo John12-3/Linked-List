@@ -19,7 +19,7 @@ public class basics {
         }
     }
 
-    public ListNode middleNode(ListNode head) {
+    public ListNode middleNode_leetcode(ListNode head) {
         if(head == null || head.next == null) return head;
 
         ListNode slow = head;
@@ -30,6 +30,21 @@ public class basics {
             fast = fast.next.next;
             slow = slow.next;
         }
+        return slow;
+        
+    }
+    public ListNode middleNode(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast.next != null && fast.next.next != null)
+        {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
         
     }
 
