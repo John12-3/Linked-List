@@ -333,7 +333,7 @@ public class kreverse {
         public void kReverse(int k) {
             // write your code here
             LinkedList prev = null;
-            LinkedList curr = new LinkedList();; 
+            LinkedList curr = new LinkedList();
 
             while(this.size() > 0)
             {
