@@ -380,10 +380,21 @@ public class reverse_pointer {
 
         private void reversePRHelper(Node node) {
             // write your code here
+            if(node == tail)
+            {
+                return;
+            }
+
+            reversePRHelper(node.next);
+            node.next.next = node;
         }
 
         public void reversePR() {
             // write your code here
+            reversePRHelper(head);
+            Node temp = head;
+            head = tail;
+            tail = temp;
         }
     }
 
