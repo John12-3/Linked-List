@@ -406,10 +406,11 @@ public class isPalindrome {
             }
             else if(left.data != right.data)
             {
-                return true;
+                return false;
             }
             else
             {
+                left = left.next;
                 return true;
             }
 
