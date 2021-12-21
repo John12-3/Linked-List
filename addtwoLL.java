@@ -396,6 +396,8 @@ public class addtwoLL {
 
         public static LinkedList addTwoLists(LinkedList one, LinkedList two) {
             // write your code here
+            LinkedList res = new LinkedList();
+            return res;
         }
     }
 
