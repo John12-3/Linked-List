@@ -33,6 +33,7 @@ public class basics {
         return slow;
         
     }
+
     public ListNode middleNode(ListNode head) {
         if(head == null || head.next == null) return head;
 
@@ -46,6 +47,26 @@ public class basics {
         }
         return slow;
         
+    }
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode prev = null;
+        ListNode curr = head;
+        
+        while(curr != null)
+        {
+            ListNode forw = curr.next; // backup
+
+            // linking
+            curr.next = prev;
+            prev = curr;
+            curr = forw;
+        }
+        return prev;
+
+
+
     }
 
     public static void main(String[] args) {
