@@ -1,6 +1,6 @@
 
 import java.io.*;
-import java.util.*;
+
 
 public class odd_even {
     public static class Node {
