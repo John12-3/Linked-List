@@ -394,26 +394,30 @@ public class reverse_data {
             head = tail;
             tail = temp;
         }
-        private void reverseDataHelper(Node right) {
+
+        private void reverseDataHelper(Node right, int floor) {
             // write your code here
-            if(right == null)
-            {
+            if (right == null) {
                 return;
             }
-            reverseDataHelper(right.next);
-            System.out.println(right.data); // reverse direction prining
+            reverseDataHelper(right.next, floor + 1);
+            //System.out.println(right.data); // reverse direction prining
             // swap left and right and move left
-            int temp = left.data;
-            left.data = right.data;
-            right.data = temp;
-            left = left.next;
+            if(floor >= size /2)
+            {
+                int temp = left.data;
+                left.data = right.data;
+                right.data = temp;
+                left = left.next;
+            }
         }
-        Node left = null;   // this will be made in the heap
+
+        Node left = null; // this will be made in the heap
 
         public void reverseData() {
             // write your code here
             left = head;
-            reverseDataHelper(head);
+            reverseDataHelper(head,0);
         }
     }
 
