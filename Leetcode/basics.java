@@ -20,7 +20,17 @@ public class basics {
     }
 
     public ListNode middleNode(ListNode head) {
+        if(head == null || head.next == null) return head;
 
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null)
+        {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        
     }
 
     public static void main(String[] args) {
