@@ -393,9 +393,33 @@ public class isPalindrome {
             tail.next = null;
         }
 
+        private boolean IsPalindromeHelper(Node right)
+        {
+            if(right == null)
+            {
+                return true;
+            }
+            boolean res = IsPalindromeHelper(right.next);
+            if(res == false)
+            {
+                return false;
+            }
+            else if(left.data != right.data)
+            {
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+        Node left = null; //  made in the heap
         public boolean IsPalindrome() {
             // write your code here
-            
+            left = head;
+            return IsPalindromeHelper(head);
         }
     }
 
