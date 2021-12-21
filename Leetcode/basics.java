@@ -64,9 +64,13 @@ public class basics {
             curr = forw;
         }
         return prev;
+    }
 
+    public void reorderList(ListNode head)
+    {
+        if(head == null || head.next == null) return head;
 
-
+        
     }
 
     public static void main(String[] args) {
