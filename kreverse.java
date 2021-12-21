@@ -337,7 +337,7 @@ public class kreverse {
 
             while(this.size() > 0)
             {
-                if(this.size() > 0)
+                if(this.size() < k)
                 {
                     int sz = this.size();
                     for(int i=0;i<sz;i++)
@@ -371,6 +371,10 @@ public class kreverse {
                     curr = new LinkedList();
                 }
             }
+            this.head = prev.head;
+            this.tail = prev.tail;
+            this.size = prev.size;
+
         }
     }
 
