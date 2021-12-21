@@ -394,22 +394,26 @@ public class reverse_data {
             head = tail;
             tail = temp;
         }
-        private void reverseDataHelper(Node node) {
+        private void reverseDataHelper(Node right) {
             // write your code here
-            if (node == tail) {
+            if(right == null)
+            {
                 return;
             }
-
-            reversePRHelper(node.next);
-            node.next.next = node;
+            reverseDataHelper(right.next);
+            System.out.println(right.data); // reverse direction prining
+            // swap left and right and move left
+            int temp = left.data;
+            left.data = right.data;
+            right.data = temp;
+            left = left.next;
         }
+        Node left = null;   // this will be made in the heap
 
         public void reverseData() {
             // write your code here
-            reversePRHelper(head);
-            Node temp = head;
-            head = tail;
-            tail = temp;
+            left = head;
+            reverseDataHelper(head);
         }
     }
 
